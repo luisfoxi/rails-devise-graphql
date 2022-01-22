@@ -8,6 +8,7 @@ module Types
 
     field :users, resolver: Resolvers::Users::Users
     field :user, resolver: Resolvers::Users::User
+    field :userWithInvitationToken, resolver: Resolvers::Users::UserWithInvitationToken
 
     field :company, resolver: Resolvers::Companies::Company
   end

@@ -22,7 +22,6 @@
 #  invitations_count      :integer          default(0)
 #  invited_by_type        :string
 #  last_name              :string           default(""), not null
-#  last_seen_at           :datetime
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
 #  locked_at              :datetime
@@ -61,8 +60,10 @@ class User < ApplicationRecord
          :devise,
          :validatable,
          :lockable,
-         :trackable,
-         :invitable
+         :trackable
+         
+         #,
+         #:invitable
 
   # add new roles to the end
   enum role: { user: 0, admin: 1, superadmin: 2 }

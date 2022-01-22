@@ -7,10 +7,16 @@
 default: &default
   adapter: postgresql
   timeout: 5000
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: rails_devise_graphql_development
+  username: postgres
+  password: <%= ENV['PG_PASSWORD'] %>
+  host: localhost
+  port: 5432
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -18,7 +24,16 @@ development:
 test:
   <<: *default
   database: db/rails_devise_graphql_test
+  username: postgres
+  password: <%= ENV['PG_PASSWORD'] %>
+  host: localhost
+  port: 5432
 
-# production:
-#   <<: *default
-#   database: db/production.sqlite3
+production:
+  <<: *default
+  database: <%= ENV['EXTRABASE_DB'] %>
+  username: postgres
+  password: <%= ENV['PG_PASSWORD'] %>
+  host: localhost
+  port: 5432
+  

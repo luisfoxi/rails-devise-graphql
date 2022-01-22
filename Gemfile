@@ -3,13 +3,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.1.4'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 1.2', '>= 1.2.3'
 
 gem 'bcrypt', '~> 3.1.7'                    # Use ActiveModel has_secure_password
 gem 'devise'                                # Use devise as authentication module
@@ -86,4 +86,12 @@ group :development do
   gem 'rubocop'                             # rubocop for linting ruby code
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'graphiql-rails', '~> 1.8'
+  # gem 'graphql_playground-rails', '~> 2.1'
+  # gem 'graphql_playground_rails', '~> 0.1.1'
 end
+
+# Others
+# gem 'tzinfo', '~> 2.0', '>= 2.0.4'
+gem 'tzinfo-data', '~> 1.2021', '>= 1.2021.1'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?

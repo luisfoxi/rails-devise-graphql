@@ -12,6 +12,7 @@ en:
       invalid: Invalid %{authentication_keys} or password.
       last_attempt: You have one more attempt before your account is locked.
       locked: Your account is locked.
+      noaccess: Invalid user name or e-mail or password.
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please sign in again to continue.
       unauthenticated: You need to sign in or sign up before continuing.
@@ -125,6 +126,7 @@ en:
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
       unlocked: Your account has been unlocked successfully. Please sign in to continue.
+      cannot_unlock: Your account has not been unlocked. Please try again.
   time:
     formats:
       devise:
