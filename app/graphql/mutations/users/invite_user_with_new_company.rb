@@ -10,10 +10,16 @@ module Mutations
 
       def resolve(attributes:)
         # create a dummy user object to check ability against create
-        user = ::User.new(attributes.to_h)
+        user = ::User.new(attributes.to_h.merge(company_id: context[:current_user].company_id))
         current_ability.authorize! :create, user
 
         user = User.invite!(user.attributes, context[:current_user])
+
+        company = ::Companies::Company.create!(name: "New Company")
+        user.company_id = company.id
+        user.role = :admin
+        user.save
+
         raise ActiveRecord::RecordInvalid, user unless user.errors.empty?
 
         user
